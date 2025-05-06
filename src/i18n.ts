@@ -17,7 +17,7 @@ i18n.use(initReactI18next).init({
     // debug: true
 });
 
-window.addEventListener("languageChanged", () => {  
+window.addEventListener("languageChanged", () => {
     const newLang = localStorage.getItem("app_lang");
     if (newLang) {
         i18n.changeLanguage(newLang);
