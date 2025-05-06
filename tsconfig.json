@@ -2,11 +2,7 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "ESNext",
-        "lib": [
-            "DOM",
-            "DOM.Iterable",
-            "ESNext"
-        ],
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
         "jsx": "react-jsx",
         "moduleResolution": "Node",
         "esModuleInterop": true,
@@ -17,25 +13,12 @@
         "noEmit": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "types": [
-            "vite/client",
-            "jest",
-            "@testing-library/jest-dom"
-        ],
+        "types": ["vite/client", "jest", "@testing-library/jest-dom", "node"],
         "baseUrl": ".",
         "paths": {
-            "@/*": [
-                "src/*"
-            ]
+            "@/*": ["src/*"]
         }
     },
-    "include": [
-        "src",
-        "**/*.test.ts",
-        "**/*.test.tsx"
-    ],
-    "exclude": [
-        "node_modules",
-        "dist"
-    ]
+    "include": ["src", "**/*.test.ts", "**/*.test.tsx"],
+    "exclude": ["node_modules", "dist"]
 }

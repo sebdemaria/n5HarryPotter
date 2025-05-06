@@ -10,16 +10,20 @@
         "check-node": "node -e \"const v=process.versions.node.split('.')[0]; if(v !== '20') { console.error('❌ Debés usar Node.js v20'); process.exit(1); } else { console.log('✅ Node.js v20 detectado'); }\"",
         "dev": "npm run check-node && vite",
         "lint:fix": "eslint . 'src/**/*.{js,jsx,ts,tsx}' --fix",
-        "prettier": "prettier --write ."
+        "prettier": "prettier --write .",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage"
     },
     "dependencies": {
         "@originjs/vite-plugin-federation": "^1.4.1",
+        "axios": "^1.9.0",
         "i18next": "^25.0.2",
         "i18next-browser-languagedetector": "^8.1.0",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
         "react-i18next": "^15.5.1",
-        "styled-components": "^6.1.17"
+        "styled-components": "6.1.17"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
@@ -31,7 +35,8 @@
         "@types/react": "^19.0.10",
         "@types/react-dom": "^19.0.4",
         "@types/react-i18next": "^8.1.0",
-        "@vitejs/plugin-react": "^4.3.4",
+        "@vitejs/plugin-react": "^4.4.1",
+        "dotenv": "^16.5.0",
         "eslint": "^9.26.0",
         "eslint-plugin-react-hooks": "^5.2.0",
         "eslint-plugin-react-refresh": "^0.4.19",
@@ -40,8 +45,10 @@
         "jest-environment-jsdom": "^29.7.0",
         "prettier": "^3.5.3",
         "ts-jest": "^29.3.2",
+        "ts-node": "^10.9.2",
         "typescript": "~5.7.2",
         "typescript-eslint": "^8.26.1",
-        "vite": "^6.3.1"
+        "vite": "^6.3.1",
+        "vitest": "^3.1.3"
     }
 }

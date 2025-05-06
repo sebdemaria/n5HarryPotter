@@ -1,10 +1,7 @@
 # Ignore artifacts:
 dist
-.next
 build
 node_modules/
-src/tests/*
-src/i18n/*
 src/public/*
 package-lock.json
 README.md
