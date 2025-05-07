@@ -50,6 +50,8 @@ Para evitar problemas de compatibilidad entre microfronts, se aplicó una **rest
 Se implemento i18n para la internacionalización del proyecto. Las apis no poseían idiomas por lo que el contenido esta solo en ingles pero los labels y demás contenido del sitio, si poseen traducciones en los files en.json y es.json. 
 Se manejo la posibilidad de crear un hook con traduccion automatica del contenido de las API's que se puede observar en el file src/hooks/useAutoTranslate.jsx. En el mismo se armó un approach para realizar traducciones en vivo de la respuesta de las API's.
 
+Se aplico localstorage para compartir el lang entre los microfront. Se tuvo en cuenta el uso de SOLID y buenas practicas escalabilidad en el código.
+
 ---
 
 ## 🔧 Pasos para ejecutar el proyecto completo
