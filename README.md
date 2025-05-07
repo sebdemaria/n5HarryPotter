@@ -1,54 +1,73 @@
-# React + TypeScript + Vite
+# 🧪 n5harrypotter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto basado en microfrontends usando [Vite](https://vitejs.dev/), [Module Federation](https://github.com/originjs/vite-plugin-federation), y desarrollado bajo la metodología **TDD (Test Driven Development)** con [Vitest](https://vitest.dev/).
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Vite**: Bundler ultrarrápido para desarrollo moderno.
+- **React 18**
+- **Vitest**: Framework de testing veloz compatible con Jest y Testing Library.
+- **TDD**: El proyecto se desarrolló con tests como primera etapa de cada funcionalidad.
+- **i18next**: Internacionalización.
+- **styled-components**: Estilos basados en componentes.
+- **BEM**: Convención utilizada para nombrar las clases CSS de forma clara y mantenible.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✅ Requisitos
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js **v20.x** (verificado automáticamente)
+- npm v9+ (recomendado)
+
+---
+
+## 🛠 Configuración inicial
+
+Antes de correr el proyecto por primera vez, debés crear un archivo `.env` en la raíz con las variables de entorno necesarias. Estas variables serán provistas por el equipo de desarrollo.
+
+---
+
+## 🧪 Testing y TDD
+
+El proyecto fue desarrollado aplicando **TDD**, es decir:
+
+1. Primero se escribe el test.
+2. Luego se implementa la funcionalidad mínima para que pase el test.
+3. Finalmente se refactoriza y se asegura la cobertura con herramientas automáticas.
+
+Se utiliza:
+- `Vitest` y `@testing-library/react` para testeo de componentes.
+- Reportes de cobertura con el motor V8.
+- ESLint y Prettier para garantizar calidad y consistencia en el código.
+
+---
+
+## ⚙️ Detalles técnicos
+
+Se implementó **module federation** con el plugin `@originjs/vite-plugin-federation`.  
+Para evitar problemas de compatibilidad entre microfronts, se aplicó una **restricción de versiones** en los paquetes compartidos, asegurando que tanto el host como los remotes usen las mismas versiones de dependencias como `react`, `react-dom`, etc.
+
+Se implemento i18n para la internacionalización del proyecto. Las apis no poseían idiomas por lo que el contenido esta solo en ingles pero los labels y demás contenido del sitio, si poseen traducciones en los files en.json y es.json. 
+Se manejo la posibilidad de crear un hook con traduccion automatica del contenido de las API's que se puede observar en el file src/hooks/useAutoTranslate.jsx. En el mismo se armó un approach para realizar traducciones en vivo de la respuesta de las API's.
+
+---
+
+## 🔧 Pasos para ejecutar el proyecto completo
+
+1. **Cloná y configurá cada microfront** por separado. En cada uno, asegurate de tener el archivo `.env` correcto.
+
+2. En cada microfront remoto, ejecutá:
+
+```bash
+npm i
+
+vite build && vite preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. En la app host ejecutá:
+```bash
+npm i
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+npm run dev
 ```
+Esto disponibilizará el host en el puerto 3000 pudiendo acceder a todos los microfronts.
