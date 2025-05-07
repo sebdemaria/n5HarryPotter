@@ -11,7 +11,7 @@ const CHARACTERS_PER_PAGE = 10;
 
 export default function CharactersList() {
     const { t } = useTranslation();
-
+    
     const [page, setPage] = useState(1);
     const [data, setData] = useState<HarryPotterCharacter[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +23,7 @@ export default function CharactersList() {
             setHasError(false);
 
             try {
-                const response = await getHarryPotterData(
+                const response = await await getHarryPotterData(
                     String(import.meta.env.VITE_BASE_API_URL),
                     `/characters`
                 );
@@ -78,7 +78,6 @@ export default function CharactersList() {
 
 const Characters = styled.section`
     padding: 2rem;
-    font-family: ${({ theme }) => theme.fonts.main};
 `;
 
 const CharactersTitle = styled.h1`
