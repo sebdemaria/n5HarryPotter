@@ -61,7 +61,7 @@ Se manejo la posibilidad de crear un hook con traduccion automatica del contenid
 ```bash
 npm i
 
-vite build && vite preview
+npm run build && npm run preview
 ```
 
 3. En la app host ejecutá:
