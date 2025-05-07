@@ -23,7 +23,7 @@ export default function CharactersList() {
             setHasError(false);
 
             try {
-                const response = await getHarryPotterData(
+                const response = await await getHarryPotterData(
                     String(import.meta.env.VITE_BASE_API_URL),
                     `/characters`
                 );
@@ -78,7 +78,6 @@ export default function CharactersList() {
 
 const Characters = styled.section`
     padding: 2rem;
-    font-family: ${({ theme }) => theme.fonts.main};
 `;
 
 const CharactersTitle = styled.h1`
