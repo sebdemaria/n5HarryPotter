@@ -1,0 +1,17 @@
+{
+    "title": "Lista de personajes Harry Potter",
+    "characterList": {
+        "error": "Hubo un error al cargar los personajes."
+    },
+    "common": {
+        "loading": "Cargando..."
+    },
+    "character": {
+        "species": "Especie",
+        "gender": "Género",
+        "house": "Casa",
+        "actor": "Actor",
+        "patronus": "Patronus",
+        "wand": "Varita"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "title": "Character List Harry Potter",
+    "characterList": {
+        "error": "There was an error while fetching the characters."
+    },
+    "common": {
+        "loading": "Loading..."
+    },
+    "character": {
+        "species": "Species",
+        "gender": "Gender",
+        "house": "House",
+        "actor": "Actor",
+        "patronus": "Patronus",
+        "wand": "Wand"
+    }
+}
